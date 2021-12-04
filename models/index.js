@@ -1,32 +1,32 @@
-const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment');
+const User = require('./user');
+const Pet = require('./pet');
+const Message = require('./message');
 
 
-Post.belongsTo(User, {
+Pet.belongsTo(User, {
   foreignKey: 'userId',
 });
 
-User.hasMany(Post, {
+User.hasMany(Pet, {
   foreignKey: 'userId',
   onDelete: 'CASCADE',
 });
 
-Comment.belongsTo(User, {
+Message.belongsTo(User, {
   foreignKey: 'userId',
 });
 
-User.hasMany(Comment, {
+User.hasMany(Message, {
   foreignKey: 'userId',
 });
 
-Comment.belongsTo(Post, {
-  foreignKey: 'postId',
+Message.belongsTo(Pet, {
+  foreignKey: 'petId',
 });
 
-Post.hasMany(Comment, {
-  foreignKey: 'postId',
+Pet.hasMany(Message, {
+  foreignKey: 'petId',
   onDelete: 'CASCADE',
 });
 
-module.exports = { User, Post, Comment, };
+module.exports = { User, Pet, Message, };
