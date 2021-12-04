@@ -1,91 +1,101 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, Pet, Message } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Find all posts
+// Find all pets
 router.get('/', async (req, res) => {
-    try {
-        const postData = await Post.findAll({
-            include: [{ model: User }, { model: Comment }],
-        });
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+	try {
+		const petData = await Pet.findAll({
+			include: [{ model: User }, { model: Message }],
+		});
+		res.status(200).json(petData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
-// Find posts by id
+// Find pets by id
 router.get('/:id', async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: User }],
-        });
+	try {
+		const petData = await Pet.findByPk(req.params.id, {
+			include: [{ model: User }],
+		});
 
-        if (!postData) {
-            res.status(404).json({ message: 'No post found with this id!' });
-            return;
-        }
+		if (!petData) {
+			res.status(404).json({ message: 'No pet found with this id!' });
+			return;
+		}
 
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+		res.status(200).json(petData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
-// Create new post
-router.post('/', withAuth, async (req, res) => {
-    try {
-        const postData = await Post.create({
-            title: req.body.title,
-            text: req.body.text,
-            userId: req.session.userId,
-        });
+// Create new pet post
+router.post('/', async (req, res) => {
+	try {
+		const petData = await Pet.create({
+			petName: req.body.petName,
+			breed: req.body.breed,
+			description: req.body.description,
+			age: req.body.age,
+			picture: req.body.picture,
+			userId: req.body.userId
+		});
 
-        req.session.save(() => {
-            req.session.loggedIn = true;
+		req.session.save(() => {
+			req.session.loggedIn = true;
 
-            res.status(200).json(postData);
-        });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
+			res.status(200).json(petData);
+		});
+	} catch (err) {
+		console.log(err);
+		res.status(500).json(err);
+	}
 });
 
-// Update a post by id
+// Update a pet by id
 router.put('/:id', async (req, res) => {
-    try {
-        const postData = await Post.update(
-            { title: req.body.title, text: req.body.text },
-            {
-                where: { id: req.params.id }
-            });
-        if (!postData) {
-            res.status(404).json({ message: 'No post with this id!' });
-            return;
-        }
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+	try {
+		const petData = await Pet.update(
+			{
+				petName: req.body.petName,
+				breed: req.body.breed,
+				description: req.body.description,
+				age: req.body.age,
+				picture: req.body.picture,
+				userId: req.body.userId
+			},
+			{
+				where: { id: req.params.id }
+			});
+		if (!petData) {
+			res.status(404).json({ message: 'No pet with this id!' });
+			return;
+		}
+		res.status(200).json(petData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
-// delete a post by id
-router.delete('/:id', async (req, res) => {
-    try {
-        const postData = await Post.destroy({
-            include: [{ model: Comment }, { model: User }],
-            where: { id: req.params.id }
-        });
-        if (!postData) {
-            res.status(404).json({ message: 'No post with this id!' });
-            return;
-        }
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// // delete a pet by id
+// router.delete('/:id', async (req, res) => {
+// 	try {
+// 		const petData = await Pet.destroy({
+// 			// include: [{ model: Message }, { model: User }],
+// 			where: { id: req.params.id }
+// 		});
+// 		if (!petData) {
+// 			res.status(404).json({ message: 'No pet with this id!' });
+// 			return;
+// 		}
+// 		res.status(200).json(petData);
+// 	} catch (err) {
+// 		res.status(500).json(err);
+// 	}
+// });
 
 
 module.exports = router;
