@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, Pet, Message } = require('../../models');
 
 // Find all users
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
-      include: [{ model: Post }, { model: Comment }],
+      include: [{ model: Pet }, { model: Message }],
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
-      include: [{ model: Post }],
+      include: [{ model: Pet }, { model: Message }],
     });
 
     if (!userData) {
@@ -35,14 +35,14 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
-      username: req.body.username,
+      firstName: req.body.firstName,
       email: req.body.email,
       password: req.body.password,
     });
 
     req.session.save(() => {
       req.session.userId = userData.id;
-      req.session.username = userData.username;
+      req.session.firstName = userData.firstName;
       req.session.loggedIn = true;
 
       res.status(200).json(userData);
@@ -80,7 +80,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.userId = userData.id;
-      req.session.username = userData.username;
+      req.session.firstName = userData.firstName;
       req.session.loggedIn = true;
 
       res
