@@ -24,11 +24,13 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="/dashboard">Pets</a>
+          <a class="nav-link" aria-current="page" href="/allpets">All Pets</a>
+          <a class="nav-link" href="/mypets">My Pets</a>
+          <a class="nav-link" aria-current="page" href="/aboutus">About Us</a>
           {{#if loggedIn}}
-          <a id="logout" class="nav-link" href="/">Logout</a>
+          <a id="logout" class="nav-link" href="/"><strong>Logout</strong></a>
           {{else}}
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/login"><strong>Login</strong></a>
           {{/if}}
         </div>
       </div>

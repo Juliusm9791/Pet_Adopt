@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/mypets');
     } else {
       alert('Failed to login e-mail or password is incorrect.');
     }
@@ -22,19 +22,21 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector('#username-signup').value.trim();
+  const firstName = document.querySelector('#firstName-signup').value.trim();
+  const lastName = document.querySelector('#lastName-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
+  const phoneNumber = document.querySelector('#phone-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (username && email && password) {
+  if (firstName && lastName && email && phoneNumber && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ firstName, lastName, email, password, phoneNumber }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/mypets');
     } else {
       alert('Failed to sign up. \nUser is already exist or min password lenth is not 8 symbols');
     }

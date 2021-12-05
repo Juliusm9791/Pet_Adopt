@@ -12,7 +12,7 @@ Message.init(
       autoIncrement: true,
     },
     message_text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     petId: {
