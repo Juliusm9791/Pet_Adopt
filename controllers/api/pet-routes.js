@@ -41,7 +41,8 @@ router.post('/', async (req, res) => {
 			description: req.body.description,
 			age: req.body.age,
 			picture: req.body.picture,
-			userId: req.body.userId
+			petType: req.body.petType,
+			userId: req.session.userId
 		});
 
 		req.session.save(() => {

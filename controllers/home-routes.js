@@ -77,12 +77,21 @@ router.get('/mypets', withAuth, async (req, res) => {
 //   }
 // });
 
+router.get('/mypets/addpet', withAuth, async (req, res) => {
+  try {
+    res.render('addpet', { loggedIn: req.session.loggedIn, userId: req.session.userId });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/aboutus', (req, res) => {
-  res.render('aboutus');
+  res.render('aboutus', { loggedIn: req.session.loggedIn });
 });
 
 // Log in

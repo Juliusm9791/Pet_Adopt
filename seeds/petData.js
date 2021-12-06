@@ -4,6 +4,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "dog",
 		"description": "fluffy short hair puppy",
 		"age": 1,
 		"picture": "link1",
@@ -13,6 +14,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "dog",
 		"description": "fluffy short hair puppy",
 		"age": 2,
 		"picture": "link1",
@@ -21,6 +23,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "cat",
 		"description": "fluffy short hair puppy",
 		"age": 3,
 		"picture": "link1",
@@ -29,6 +32,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "bird",
 		"description": "fluffy short hair puppy",
 		"age": 4,
 		"picture": "link1",
@@ -37,6 +41,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "other",
 		"description": "fluffy short hair puppy",
 		"age": 5,
 		"picture": "link1",
@@ -45,6 +50,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "other",
 		"description": "fluffy short hair puppy",
 		"age": 6,
 		"picture": "link1",
@@ -53,6 +59,7 @@ const petData = [
 	{
 		"petName": "Fluffy",
 		"breed": "yorkie",
+		"petType": "cat",
 		"description": "fluffy short hair puppy",
 		"age": 7,
 		"picture": "link1",
