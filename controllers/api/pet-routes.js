@@ -86,7 +86,9 @@ router.put('/:id', async (req, res) => {
 // 	try {
 // 		const petData = await Pet.destroy({
 // 			// include: [{ model: Message }, { model: User }],
-// 			where: { id: req.params.id }
+// 			where: { 
+// 				id: req.params.id
+// 			}
 // 		});
 // 		if (!petData) {
 // 			res.status(404).json({ message: 'No pet with this id!' });
