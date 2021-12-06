@@ -15,6 +15,10 @@ Pet.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    petType: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     breed: {
       type: DataTypes.STRING,
       allowNull: false,
