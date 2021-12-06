@@ -11,6 +11,7 @@ router.get('/allpets', async (req, res) => {
     });
 
     const allPets = petsData.map((user) => user.get({ plain: true }));
+    // console.log(allPets)
     res.render('allpets', { allPets, loggedIn: req.session.loggedIn });
 
   } catch (err) {
@@ -28,6 +29,8 @@ router.get('/mypets', withAuth, async (req, res) => {
     });
 
     const userInfo = userData.get({ plain: true });
+
+    console.log(userInfo)
     res.render('mypets', {
       ...userInfo,
       loggedIn: req.session.loggedIn

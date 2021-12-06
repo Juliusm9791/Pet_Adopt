@@ -2,31 +2,38 @@
 
 {{!-- {{#each allInfo}}
 <div class="card text-dark bg-light my-3 border border-dark">
-    <a href="/addcomment/post/{{id}}" class="d-inline-flex card-header p-2 justify-content-between"
-        style="text-decoration: none;">
-        <div class="me-3"><strong>{{title}}</strong></div>
-        <div class="ms-3">Posted By <strong>{{user.username}}</strong> on {{format_date createdAt}} {{format_time
-            createdAt}}</div>
-    </a>
-    <div class="card-body">
-        <p class="card-text">{{text}}</p>
-    </div>
+  <a href="/addcomment/post/{{id}}" class="d-inline-flex card-header p-2 justify-content-between"
+    style="text-decoration: none;">
+    <div class="me-3"><strong>{{title}}</strong></div>
+    <div class="ms-3">Posted By <strong>{{user.username}}</strong> on {{format_date createdAt}} {{format_time
+      createdAt}}</div>
+  </a>
+  <div class="card-body">
+    <p class="card-text">{{text}}</p>
+  </div>
 </div>
 {{/each}} --}}
+<div class="row justify-content-evenly">
+{{#each allPets}}
+  {{!-- <div class="col-sm-5 my-5"> --}}
+    <div class="card m-2" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title {{petName}}, {{petType}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">Contact <strong>{{user.firstName}}</strong> to get more info</li>
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  {{!-- </div> --}}
+{{/each}}
 </div>
