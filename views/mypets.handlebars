@@ -1,2 +1,40 @@
-<h1>My Pets comming soon ...</h1>
+
+{{!-- <h2>Below are the list of your saved pets</h2> --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid" style="background-color: aqua">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="margin-left: 400px">
+                <h2>Welcome {{firstName}} {{lastName}}</h2>
+            </div>
+        </div>
+    </div>
+</nav>
 <a href="/mypets/addpet" type="button" class="btn btn-primary my-3" id="addPostButton">Add New Pet</a>
+
+{{#each pets as |pet|}}
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="../images/{{picture}}.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <a href="">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">My Name: {{petName}}</h5>
+                    <h5 class="card-title">My Age: {{age}}</h5>
+                    <h5 class="card-title">My Breed: {{breed}}</h5>
+                    <h5 class="card-title">About Me:</h5>
+                    <p class="card-text">{{description}}</p>
+                    <p class="card-text"><small class="text-muted">{{format_date createdAt}}</small></p>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+</div>
+{{/each}}
