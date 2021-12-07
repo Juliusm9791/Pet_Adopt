@@ -1,4 +1,8 @@
-<h1>All pets coming soon ...</h1>
+{{!-- {{#if allPets}}
+<h1>See all our pets!</h1>
+{{#else }}
+<h1>Currently no pets available</h1>
+{{/if}} --}}
 <div class="row justify-content-evenly">
 {{#each allPets}}
   {{!-- <div class="col-sm-5 my-5"> --}}
@@ -15,8 +19,7 @@
 
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <a href= "mailto: {{user.email}}" class="card-link">Send Email</a>
       </div>
     </div>
   {{!-- </div> --}}
