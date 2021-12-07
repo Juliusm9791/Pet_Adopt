@@ -3,11 +3,11 @@ const { Pet } = require('../models');
 const petData = [
 	{
 		"petName": "Fluffy",
-		"breed": "yorkie",
-		"petType": "dog",
+		"breed": "Yorkie",
+		"petType": "Dog",
 		"description": "small energetic puppy",
 		"age": 1,
-		"picture": "link1",
+		"picture": "one",
 		"userId": 1
 
 	},
@@ -17,7 +17,7 @@ const petData = [
 		"petType": "cat",
 		"description": "white and black indoor adult cat",
 		"age": 2,
-		"picture": "link2",
+		"picture": "two",
 		"userId": 2
 	},
 	{
@@ -26,7 +26,7 @@ const petData = [
 		"petType": "cat",
 		"description": "black and white indoor adult cat",
 		"age": 3,
-		"picture": "link3",
+		"picture": "three",
 		"userId": 3
 	},
 	{
@@ -35,7 +35,7 @@ const petData = [
 		"petType": "dog",
 		"description": "young energetic pitbull",
 		"age": 1,
-		"picture": "link4",
+		"picture": "four",
 		"userId": 1
 	},
 	{
@@ -44,7 +44,7 @@ const petData = [
 		"petType": "dog",
 		"description": "adult english bulldog well trained",
 		"age": 5,
-		"picture": "link5",
+		"picture": "five",
 		"userId": 2
 	},
 	{
@@ -53,16 +53,16 @@ const petData = [
 		"petType": "dog",
 		"description": "large loveable great dane puppy",
 		"age": 1,
-		"picture": "link6",
+		"picture": "six",
 		"userId": 3
 	},
 	{
-		"petName": "grumpy",
+		"petName": "Grumpy",
 		"breed": "mixed",
 		"petType": "cat",
 		"description": "long hair indoor outdoor cat",
 		"age": 3,
-		"picture": "link7",
+		"picture": "seven",
 		"userId": 1
 	}
 ];
