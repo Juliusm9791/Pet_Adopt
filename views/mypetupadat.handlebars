@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/images/{{picture}}.jpg" class="img-fluid rounded-start" alt="Pet image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">My Name: {{petName}}</h5>
+        <h5 class="card-title">My Age:</h5>
+        <h5 class="card-title">My Breed: </h5>
+        <h5 class="card-title">About Me:</h5>
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+<form class="my-3">
+    <div class="mb-3">
+        <label for="addPetName" class="form-label">Pet Name</label>
+        <input type="name" class="form-control" id="updatePetName" value="{{petName}}">
+    </div>
+
+    <select class="form-select" id="updatePetType" >
+        <option selected disabled hidden>{{petType}}</option>
+        <option value="1" >Dog</option>
+        <option value="2">Cat</option>
+        <option value="3">Bird</option>
+        <option value="4">Other</option>
+    </select>
+
+    <div class="mb-3">
+        <label for="addPetBreed" class="form-label">Breed</label>
+        <input type="name" class="form-control" id="updatePetBreed" value="{{breed}}">
+    </div>
+    <div class="mb-3">
+        <label for="addPetAge" class="form-label">Pets Age</label>
+        <input type="name" class="form-control" id="updatePetAge" placeholder="Age">
+    </div>
+    <div class="mb-3">
+        <label for="addPetDescription" class="form-label">Description</label>
+        <textarea class="form-control" id="updatePetDescription" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="addPetPicture" class="form-label">Add picture</label>
+        <input type="name" class="form-control" id="updatePetPicture" placeholder="Picture">
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="updatePetButton">Update</button>
+       <button type="submit" class="btn btn-danger" id="deletePetButton">Delete</button>
+    <a href="/mypets" class="btn btn-primary">Back to My Pets</a>
+
+</form>
+
+
+<script src="/js/updatePet.js"></script>

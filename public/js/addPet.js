@@ -9,7 +9,7 @@ const addPetFormHandler = async (event) => {
     const petTypeSelect = document.querySelector('#selectPetType').selectedOptions;
     let petType = petTypeSelect[0].textContent;
 
-    console.log(petName, breed, age, description, picture, petType)
+    // console.log(petName, breed, age, description, picture, petType)
 
     if (petName && breed && age && description && picture && petType) {
         const response = await fetch('/api/pet', {

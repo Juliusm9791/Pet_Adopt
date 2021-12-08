@@ -16,11 +16,11 @@
 </nav>
 <a href="/mypets/addpet" type="button" class="btn btn-primary my-3" id="addPostButton">Add New Pet</a>
 
-{{#each pets as |pet|}}
+{{#each pets}}
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-            <a href="/updatepet"><img src="../images/{{picture}}.jpg" class="img-fluid rounded-start" alt="..."></a>
+            <a href="/mypets/update/{{id}}"><img src="/images/{{picture}}.jpg" class="img-fluid rounded-start" alt="Pet picture"></a>
         </div>     
             <div class="col-md-8" style="background-color: #caf0f8;">
                 <div class="card-body">
