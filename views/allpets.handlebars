@@ -17,7 +17,7 @@
 <div class="row justify-content-evenly">
 	{{#each allPets}}
 	<div class="card m-2 bg-secondary" style="width: 18rem;">
-		<a href="allpets/pet/{{id}}"><img src="../images/{{picture}}.jpg" class="card-img-top" alt="picture of animal">
+		<img src="../images/{{picture}}.jpg" class="card-img-top" alt="picture of animal">
 		<div class="card-body">
 			<h5 class="card-title text-white">Say hello to {{petName}}</h5>
 		</div>
@@ -29,13 +29,9 @@
 		</ul>
 		<div class="card-body">
 
-      </ul>
-      <div class="card-body">
-        <a href= "mailto: {{user.email}}" class="card-link">Send Email</a>
       </div>
-    </div>
-  {{!-- </div> --}}
-{{/each}}
+	</div>
+	{{/each}}
 </div>
 
 <script src="/js/search.js"></script>
