@@ -1,34 +1,68 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid" style="background-color: #9fa0ff; height: 70px;">
+{{! <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid" style="background-color: #9fa0ff; height: 50px;">
     <a href="/mypets" type="button" class="btn btn-primary btn-lg">Back To My-Pets</a>
     <!-- <button type="button" class="btn btn-primary btn-lg">Back To My-Pets</button> -->
     <span class="navbar-text">
-      <h3 style="margin-right: 600px;">Update Your Pet Information</h3>
+      <h3 style="margin-right: 900px;">Update Your Pet Information</h3>
     </span>
+  </div>
+</nav> }}
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Update your pet information using form
+      below
+    </a>
   </div>
 </nav>
 <div class="card" style="width: 56rem;">
-  <img src="../images/two.jpg" class="card-img-top" alt="..." />
+  <img
+    src="/images/{{picture}}.jpg"
+    class="card-img-top"
+    alt="pet-image"
+    height="325"
+    width="15"
+  />
   <div class="card-body">
-    <h5 class="card-title">Name:</h5>
-    <p class="card-text">{{description}}</p>
+    <label for="addPetName" class="form-label"><h5>Pet Name</h5></label>
+    <input type="name" class="form-control" id="updatePetName" value="{{petName}}">
+    {{!-- <h5 class="card-title">Name: {{petName}}</h5>
+    <p class="card-text">{{description}}</p> --}}
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <h5>Age:</h5>{{age}}
+      <label for="addPetAge" class="form-label"><h5>Pet Age</h5></label>
+      <input type="name" class="form-control" id="updatePetAge" placeholder="Age" value="{{age}}">
+      {{!-- <h5>Age:</h5>{{age}} --}}
     </li>
     <li class="list-group-item">
-      <h5>Breed:</h5>{{breed}}
+      <label for="addPetBreed" class="form-label"><h5>Breed</h5></label>
+      <input type="name" class="form-control" id="updatePetBreed" value="{{breed}}">
+      {{!-- <h5>Breed:</h5>{{breed}} --}}
+    </li>
+    <li class="list-group-item">
+      <h5>Type:</h5><select class="form-select" id="updatePetType">
+        <option selected disabled hidden>{{petType}}</option>
+        <option value="1">Dog</option>
+        <option value="2">Cat</option>
+        <option value="3">Bird</option>
+        <option value="4">Other</option>
+      </select>
     </li>
   </ul>
   <div class="card-body">
-    <a href="/updatePetData" class="card-link"><button
-        type="button"
+    <button type="submit" class="btn btn-success" id="updatePetButton">Update Info</button>
+    {{!-- <a href="/updatePetData" class="card-link"><button
+        type="submit"
         class="btn btn-success"
-      >Update Info</button></a>
-    <a href="#" class="card-link"><button
+        id="updatePetButton"
+      >Update Info</button></a> --}}
+
+    <button type="submit" class="btn btn-warning" id="deletePetButton">Delete Pet</button>
+    {{!-- <a href="#" class="card-link"><button
         type="button"
         class="btn btn-warning"
-      >Delete Pet</button></a>
+        id="deletePetButton"
+      >Delete Pet</button></a> --}}
   </div>
 </div>
+<script src="/js/updatePet.js"></script>
