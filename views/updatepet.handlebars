@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid" style="background-color: #9fa0ff; height: 70px;">
+    <a href="/mypets" type="button" class="btn btn-primary btn-lg">Back To My-Pets</a>
+    <!-- <button type="button" class="btn btn-primary btn-lg">Back To My-Pets</button> -->
+    <span class="navbar-text">
+      <h3 style="margin-right: 600px;">Update Your Pet Information</h3>
+    </span>
+  </div>
+</nav>
+<div class="card" style="width: 56rem;">
+  <img src="../images/two.jpg" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">Name:</h5>
+    <p class="card-text">{{description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <h5>Age:</h5>{{age}}
+    </li>
+    <li class="list-group-item">
+      <h5>Breed:</h5>{{breed}}
+    </li>
+  </ul>
+  <div class="card-body">
+    <a href="/updatePetData" class="card-link"><button
+        type="button"
+        class="btn btn-success"
+      >Update Info</button></a>
+    <a href="#" class="card-link"><button
+        type="button"
+        class="btn btn-warning"
+      >Delete Pet</button></a>
+  </div>
+</div>
