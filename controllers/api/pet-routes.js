@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Pet, Message } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 // Find all pets
 router.get('/', async (req, res) => {
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 	try {
 		const petData = await Pet.findByPk(req.params.id, {
-			include: [{ model: User }],
+			include: [{ model: User }, { model: Message }],
 		});
 
 		if (!petData) {
