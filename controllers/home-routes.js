@@ -3,7 +3,7 @@ const { User, Pet, Message } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-// GET all info for homepage
+// GET all info for allpets
 router.get('/allpets', async (req, res) => {
   try {
     const petsData = await Pet.findAll({
@@ -51,6 +51,21 @@ router.get('/allpets/pet/:id', async (req, res) => {
     const petInfo = petData.get({ plain: true });
     console.log(petInfo)
     res.render('seeonepet', { ...petInfo, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/allpets/:petType', async (req, res) => {
+  try {
+    const petData = await Pet.findByPk(req.params.petType, {
+      include: [{model: Message}, { model: User, exclude: ['password'] },],
+    });
+
+    const petInfo = petData.get({ plain: true });
+    console.log(petInfo)
+    res.render('mypets', { ...petInfo, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

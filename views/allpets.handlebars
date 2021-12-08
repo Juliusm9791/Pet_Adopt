@@ -1,8 +1,18 @@
-{{!-- {{#if allPets}}
+{{#if allPets}}
 <h1>See all our pets!</h1>
-{{#else }}
+
+   <p> Search Pets: <select class="form-select" id="selectPetTypeSearch">Search Pets: 
+        <option selected>Select Pet Type</option>
+        <option value="1">Dog</option>
+        <option value="2">Cat</option>
+        <option value="3">Bird</option>
+        <option value="4">Other</option>
+    </select>
+          <button class="w-100 btn btn-lg btn-primary" type="submit" id="searByTypeButton">Search</button>
+</p>
+{{else}}
 <h1>Currently no pets available</h1>
-{{/if}} --}}
+{{/if}}
 <div class="row justify-content-evenly">
 {{#each allPets}}
   {{!-- <div class="col-sm-5 my-5"> --}}
@@ -25,3 +35,5 @@
   {{!-- </div> --}}
 {{/each}}
 </div>
+
+<script src="/js/search.js"></script>
