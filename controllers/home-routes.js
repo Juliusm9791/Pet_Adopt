@@ -65,7 +65,7 @@ router.get('/mypets/update/:id', async (req, res) => {
 
     const petInfo = petData.get({ plain: true });
     // console.log(petInfo)
-    res.render('mypetupadat', { ...petInfo, loggedIn: req.session.loggedIn });
+    res.render('updatepet', { ...petInfo, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
