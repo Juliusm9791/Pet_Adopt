@@ -1,0 +1,87 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <div
+      class="container-fluid"
+      style="background-color: #9fa0ff; height: 70px;"
+    >
+      <a href="/mypets" type="button" class="btn btn-primary btn-lg">Back To
+        My-Pets</a>
+      <!-- <button type="button" class="btn btn-primary btn-lg">Back To My-Pets</button> -->
+      <span class="navbar-text">
+        <h3 style="margin-right: 520px;">Use the below given form to update the
+          pet information</h3>
+      </span>
+    </div>
+  </nav>
+  <form class="my-3" style="margin-right: 10%;">
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Name</span>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg"
+        placeholder="enter pet name"
+      />
+    </div>
+    <div class="input-group-lg">
+      <select class="form-select" aria-label="Disabled select example">
+        <option selected>Select Pet Type</option>
+        <option value="1">Dog</option>
+        <option value="2">Cat</option>
+        <option value="3">Bird</option>
+        <option value="3">Other</option>
+      </select>
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Breed</span>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg"
+        placeholder="enter your pet breed"
+      />
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg"> Pet Age</span>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg"
+        placeholder="enter age of your pet"
+      />
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text">Description</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    <div class="input-group input-group-lg">
+      <!-- <span class="input-group-text" id="inputGroup-sizing-lg">Add Picture</span> -->
+      <label
+        for="addPetPicture"
+        class="input-group-text"
+        id="inputGroup-sizing-lg"
+      >Add Picture</label>
+      <!-- <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+                    placeholder="enter image name of the pet"> -->
+      <input
+        type="name"
+        class="form-control"
+        id="addPetPicture"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg"
+        placeholder="enter image name of the pet"
+      />
+    </div>
+
+  </form>
+  <div class="d-grid gap-2 col-6 mx-auto input-group-lg">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      id="addPetButton"
+    >Save</button>
+  </div>
+</div>
