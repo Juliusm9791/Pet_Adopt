@@ -17,7 +17,7 @@
 <div class="row justify-content-evenly">
 	{{#each allPets}}
 	<div class="card m-2 bg-secondary" style="width: 18rem;">
-		<img src="../images/{{picture}}.jpg" class="card-img-top" alt="picture of animal">
+		<a href="/allpets/pet/{{id}}"><img src="../images/{{picture}}.jpg" class="card-img-top" alt="picture of animal"></a>
 		<div class="card-body">
 			<h5 class="card-title text-white">Say hello to {{petName}}</h5>
 		</div>
