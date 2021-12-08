@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-// Find pets by id
+// Find pet by id
 router.get('/:id', async (req, res) => {
 	try {
 		const petData = await Pet.findByPk(req.params.id, {
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
-// Create new pet post
+// Create new pet 
 router.post('/', async (req, res) => {
 	try {
 		const petData = await Pet.create({
@@ -66,7 +66,7 @@ router.put('/:id', async (req, res) => {
 				description: req.body.description,
 				age: req.body.age,
 				picture: req.body.picture,
-				userId: req.body.userId
+				petType: req.body.petType,
 			},
 			{
 				where: { id: req.params.id }
@@ -81,24 +81,23 @@ router.put('/:id', async (req, res) => {
 	}
 });
 
-// // delete a pet by id
-// router.delete('/:id', async (req, res) => {
-// 	try {
-// 		const petData = await Pet.destroy({
-// 			// include: [{ model: Message }, { model: User }],
-// 			where: { 
-// 				id: req.params.id
-// 			}
-// 		});
-// 		if (!petData) {
-// 			res.status(404).json({ message: 'No pet with this id!' });
-// 			return;
-// 		}
-// 		res.status(200).json(petData);
-// 	} catch (err) {
-// 		res.status(500).json(err);
-// 	}
-// });
+// delete a pet by id
+router.delete('/:id', async (req, res) => {
+	try {
+		const petData = await Pet.destroy({
+			where: { 
+				id: req.params.id
+			}
+		});
+		if (!petData) {
+			res.status(404).json({ message: 'No pet with this id!' });
+			return;
+		}
+		res.status(200).json(petData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
 
 
 module.exports = router;

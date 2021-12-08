@@ -11,7 +11,7 @@ router.get('/allpets', async (req, res) => {
     });
 
     const allPets = petsData.map((user) => user.get({ plain: true }));
-    console.log(allPets)
+    // console.log(allPets)
     res.render('allpets', { allPets, loggedIn: req.session.loggedIn });
 
   } catch (err) {
@@ -30,7 +30,7 @@ router.get('/mypets', withAuth, async (req, res) => {
 
     const userInfo = userData.get({ plain: true });
 
-    console.log(userInfo)
+    // console.log(userInfo)
     res.render('mypets', {
       ...userInfo,
       loggedIn: req.session.loggedIn
@@ -49,7 +49,7 @@ router.get('/allpets/pet/:id', async (req, res) => {
     });
 
     const petInfo = petData.get({ plain: true });
-    console.log(petInfo)
+    // console.log(petInfo)
     res.render('seeonepet', { ...petInfo, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
@@ -57,15 +57,17 @@ router.get('/allpets/pet/:id', async (req, res) => {
   }
 });
 
-router.get('/allpets/:petType', async (req, res) => {
+
+router.get('/mypets/update/:id', async (req, res) => {
   try {
-    const petData = await Pet.findByPk(req.params.petType, {
+    const petData = await Pet.findByPk(req.params.id, {
       include: [{model: Message}, { model: User, exclude: ['password'] },],
     });
 
     const petInfo = petData.get({ plain: true });
     console.log(petInfo)
     res.render('mypets', { ...petInfo, loggedIn: req.session.loggedIn });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
