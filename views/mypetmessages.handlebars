@@ -1,7 +1,7 @@
-<div class="card mb-3">
+<div class="card mb-3 mt-3">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="/images/{{picture}}.jpg" class="img-fluid rounded-start" alt="Pet image">
+      <a href="/mypets"><img src="/images/{{picture}}.jpg" class="img-fluid rounded-start" alt="Pet image"></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -15,6 +15,7 @@
     </div>
   </div>
 </div>
+
 {{#each messages}}
 
 <div class="card border-success mb-3">
@@ -25,22 +26,3 @@
     createdAt}}</div>
 </div>
 {{/each}}
-
-
-{{#if loggedIn}}
-<form class="my-3">
-  <div class="mb-3">
-    <label for="messageText" class="form-label"><strong>Add Message</strong> </label>
-    <textarea class="form-control" id="messageText" rows="3"></textarea>
-  </div>
-  <button type="submit" class="btn btn-success" id="saveMessageButton">Save Message</button>
-  <a href="/allpets" class="btn btn-success">Go Back</a>
-</form>
-{{else}}
-<p> You need to log in if you want to leave a message</p>
-<a href="/login" type="button" class="btn btn-primary my-3" id="addPostButton">Log in</a>
-
-{{/if}}
-
-
-<script src="/js/addmessage.js"></script>

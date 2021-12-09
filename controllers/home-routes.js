@@ -109,30 +109,23 @@ router.get('/mypets/update/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/mypets/messages/:id', async (req, res) => {
+  try {
+    const petData = await Pet.findByPk(req.params.id, {
+      include: [{ model: Message }, { model: User, exclude: ['password'] },],
+    });
 
-// router.get('/dashboard/addpost', async (req, res) => {
-//   try {
-//     res.render('addpost', { loggedIn: req.session.loggedIn, userId: req.session.userId });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+    const petInfo = petData.get({ plain: true });
+    console.log(petInfo)
+    res.render('mypetmessages', { ...petInfo, loggedIn: req.session.loggedIn });
 
-// GET post info by id for add comment
-// router.get('/addcomment/post/:id', withAuth, async (req, res) => {
-//   try {
-//     const postData = await Post.findByPk(req.params.id, {
-//       include: [{ model: User, exclude: ['password'] }, { model: Comment }],
-//     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-//     const allInfo = postData.get({ plain: true });
-//     res.render('addcomment', { ...allInfo, loggedIn: req.session.loggedIn });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+
 
 router.get('/mypets/addpet', withAuth, async (req, res) => {
   try {

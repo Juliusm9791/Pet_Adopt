@@ -1,3 +1,8 @@
+<h1>Update Your Pet Data</h1>
+{{#if messages}}
+<a href="/mypets/messages/{{id}}" class="btn btn-success m-2">You have messages</a>
+{{/if}}
+
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -46,9 +51,9 @@
         <input type="name" class="form-control" id="updatePetPicture" placeholder="Picture">
     </div>
 
-    <button type="submit" class="btn btn-primary" id="updatePetButton">Update</button>
-       <button type="submit" class="btn btn-success" id="deletePetButton">Delete</button>
-    <a href="/mypets" class="btn btn-primary">Back to My Pets</a>
+    <button type="submit" class="btn btn-success" id="updatePetButton">Update</button>
+       <button type="submit" class="btn btn-danger" id="deletePetButton">Delete</button>
+    <a href="/mypets" class="btn btn-success">Back to My Pets</a>
 
 </form>
 
