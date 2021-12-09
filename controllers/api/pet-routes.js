@@ -14,6 +14,18 @@ router.get('/', async (req, res) => {
 	}
 });
 
+router.get('/:petType', async (req, res) => {
+	try {
+		const petData = await Pet.findAll({
+			where: { petType: req.params.petType },
+			include: [{ model: User }, { model: Message }],
+		});
+		res.status(200).json(petData);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // Find pet by id
 router.get('/:id', async (req, res) => {
 	try {
@@ -85,7 +97,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
 	try {
 		const petData = await Pet.destroy({
-			where: { 
+			where: {
 				id: req.params.id
 			}
 		});

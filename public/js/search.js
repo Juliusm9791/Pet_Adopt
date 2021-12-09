@@ -14,7 +14,7 @@ if ( petType ) {
     });
 
     if (response.ok) {
-        document.location.replace(`/mypets/${petType}`);
+        document.location.replace(`/allpets/${petType}`);
     } else {
         alert("ERROR: Can't Add Pet.");
     }
@@ -22,5 +22,5 @@ if ( petType ) {
 };
 
 document
-    .querySelector('#searByTypeButton')
+    .querySelector('#searchByTypeButton')
     .addEventListener('click', searchByTypeFormHandler);

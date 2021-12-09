@@ -4,44 +4,77 @@ const updatePetFormHandler = async (event) => {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const petName = document.querySelector('#updatePetName').value.trim();
-  const breed = document.querySelector('#updatePetBreed').value.trim();
-  const age = document.querySelector('#updatePetAge').value.trim();
-  const description = document.querySelector('#updatePetDescription').value;
-  const picture = document.querySelector('#updatePetPicture').value;
+  const petName = document.querySelector('#updatePetName')
+  const breed = document.querySelector('#updatePetBreed')
+  const age = document.querySelector('#updatePetAge')
+  const description = document.querySelector('#updatePetDescription');
+  const picture = document.querySelector('#updatePetPicture')
   const petTypeSelect = document.querySelector('#updatePetType').selectedOptions;
   let petType = petTypeSelect[0].textContent;
 
-  if (petName && breed && age && description && picture && petType) {
-    const response = await fetch(`/api/pet/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ petName, breed, age, description, picture, petType  }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+  const errors = [];
+  const querySelectors = {
+    petName,
+    breed,
+    age,
+    description,
+    picture,
+    petType,
 
-    if (response.ok) {
-      document.location.replace(`/mypets/update/${id}`);
-    } else {
-      alert('Failed to log in.');
+  }
+  const body = {
+    petName: petName.value.trim(),
+    breed: breed.value.trim(),
+    age: age.value.trim(),
+    description: description.value.trim(),
+    picture: picture.value.trim(),
+    petType
+  };
+
+  for (const key in body) {
+    if (!body[key]) {
+      errors.push(key);
     }
+  }
+
+
+  if (!errors.length) {
+    try {
+      const response = await fetch(`/api/pet/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        document.location.replace(`/mypets/update/${id}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    errors.forEach(error => {
+      console.log(error)
+      querySelectors[error].classList.add('ms-5')
+    })
   }
 };
 
 const deletePetFormHandler = async () => {
-  
+
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-    const response = await fetch(`/api/pet/${id}`, {
-      method: 'DELETE',
-    });
+  const response = await fetch(`/api/pet/${id}`, {
+    method: 'DELETE',
+  });
 
-    if (response.ok) {
-      document.location.replace('/mypets');
-    } else {
-      alert('ERROR: Cant Delete.');
-    }
-  
+  if (response.ok) {
+    document.location.replace('/mypets');
+  } else {
+    alert('ERROR: Cant Delete.');
+  }
+
 };
 
 document
