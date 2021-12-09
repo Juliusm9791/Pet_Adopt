@@ -42,10 +42,47 @@ router.get('/mypets', withAuth, async (req, res) => {
 });
 
 // GET pet info by id 
+router.get('/allpets', async (req, res) => {
+  try {
+    const petData = await Pet.findAll({
+      include: [{ model: Message }, { model: User, exclude: ['password'] },],
+    });
+
+    const allPets = petData.map(pet => pet.get({ plain: true }));
+    // console.log(petInfo)
+    res.render('allpets', { allPets, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/allpets/:petType', async (req, res) => {
+  try {
+    console.log(req.params.petType, 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt')
+    const petData = await Pet.findAll({
+      where: { petType: req.params.petType },
+      include: [
+        { model: Message },
+        { model: User, exclude: ['password'] },
+      ],
+    });
+
+
+    const allPets = petData.map(pet => pet.get({ plain: true }));
+    console.log(petData)
+    res.render('allpets', { allPets, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET pet info by id 
 router.get('/allpets/pet/:id', async (req, res) => {
   try {
     const petData = await Pet.findByPk(req.params.id, {
-      include: [{model: Message}, { model: User, exclude: ['password'] },],
+      include: [{ model: Message }, { model: User, exclude: ['password'] },],
     });
 
     const petInfo = petData.get({ plain: true });
@@ -55,13 +92,13 @@ router.get('/allpets/pet/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-});
+})
 
 
 router.get('/mypets/update/:id', async (req, res) => {
   try {
     const petData = await Pet.findByPk(req.params.id, {
-      include: [{model: Message}, { model: User, exclude: ['password'] },],
+      include: [{ model: Message }, { model: User, exclude: ['password'] },],
     });
 
     const petInfo = petData.get({ plain: true });
@@ -108,7 +145,7 @@ router.get('/mypets/addpet', withAuth, async (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.render('homepage', { loggedIn: req.session.loggedIn });
+  res.render('homepage', { loggedIn: req.session.loggedIn });
 });
 
 router.get('/aboutus', (req, res) => {
