@@ -11,9 +11,9 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">My Name: {{petName}}</h5>
-        <h5 class="card-title">My Age:</h5>
-        <h5 class="card-title">My Breed: </h5>
-        <h5 class="card-title">About Me:</h5>
+        <h5 class="card-title">My Age: {{age}}</h5>
+        <h5 class="card-title">My Breed: {{breed}}</h5>
+        <h5 class="card-title">About Me: {{description}}</h5>
         <p class="card-text"></p>
         <p class="card-text"><small class="text-muted"></small></p>
       </div>
@@ -22,7 +22,7 @@
 </div>
 <form class="my-3">
     <div class="mb-3">
-        <label for="addPetName" class="form-label">Pet Name</label>
+        <label for="addPetName" class="form-label"><h6>Pet Name</h6></label>
         <input type="name" class="form-control" id="updatePetName" value="{{petName}}">
     </div>
 
@@ -35,25 +35,26 @@
     </select>
 
     <div class="mb-3">
-        <label for="addPetBreed" class="form-label">Breed</label>
+        <label for="addPetBreed" class="form-label"><h6>Breed</h6></label>
         <input type="name" class="form-control" id="updatePetBreed" value="{{breed}}">
     </div>
     <div class="mb-3">
-        <label for="addPetAge" class="form-label">Pets Age</label>
-        <input type="name" class="form-control" id="updatePetAge" placeholder="Age">
+        <label for="addPetAge" class="form-label"><h6>Pet Age</h6></label>
+        <input type="name" class="form-control" id="updatePetAge" value="{{age}}">
     </div>
     <div class="mb-3">
-        <label for="addPetDescription" class="form-label">Description</label>
-        <textarea class="form-control" id="updatePetDescription" rows="3"></textarea>
+        <label for="addPetDescription" class="form-label"><h6>Description</h6></label>
+        {{!-- <textarea class="form-control" id="updatePetDescription" rows="3" id="{{description}}" ></textarea> --}}
+        <input type="name" class="form-control" id="updatePetAge" value="{{description}}">
     </div>
     <div class="mb-3">
-        <label for="addPetPicture" class="form-label">Add picture</label>
+        <label for="addPetPicture" class="form-label"><h6>Add picture</h6></label>
         <input type="name" class="form-control" id="updatePetPicture" placeholder="Picture">
     </div>
 
-    <button type="submit" class="btn btn-success" id="updatePetButton">Update</button>
+    <button type="submit" class="btn btn-primary" id="updatePetButton">Update</button>
        <button type="submit" class="btn btn-danger" id="deletePetButton">Delete</button>
-    <a href="/mypets" class="btn btn-success">Back to My Pets</a>
+    <a href="/mypets" class="btn btn-primary">Back to My Pets</a>
 
 </form>
 
