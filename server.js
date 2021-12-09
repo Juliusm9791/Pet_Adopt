@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const bodyParser = require('body-parser');
+const multer = require('multer');
 
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
@@ -11,9 +13,22 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const multerMid = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    // no larger than 5mb.
+    fileSize: 5 * 1024 * 1024,
+  },
+});
+
+app.disable('x-powered-by');
+app.use(multerMid.single('file'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: { maxAge: 800000},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -31,6 +46,14 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: err,
+    message: 'Internal server error!',
+  })
+  next()
+});
 
 app.use(routes);
 
