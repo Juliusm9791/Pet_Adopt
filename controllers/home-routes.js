@@ -59,7 +59,6 @@ router.get('/allpets', async (req, res) => {
 
 router.get('/allpets/:petType', async (req, res) => {
   try {
-    console.log(req.params.petType, 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt')
     const petData = await Pet.findAll({
       where: { petType: req.params.petType },
       include: [

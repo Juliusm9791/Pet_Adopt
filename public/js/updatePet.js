@@ -55,7 +55,7 @@ const updatePetFormHandler = async (event) => {
   } else {
     errors.forEach(error => {
       console.log(error)
-      querySelectors[error].classList.add('ms-5')
+      querySelectors[error].classList.add('border-danger')
     })
   }
 };
