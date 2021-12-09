@@ -1,6 +1,6 @@
 <h1>Update Your Pet Data</h1>
 {{#if messages}}
-<a href="/mypets/messages/{{id}}" class="btn btn-success m-2">You have messages</a>
+<a href="/mypets/messages/{{id}}" class="btn btn-primary m-2">You have messages</a>
 {{/if}}
 
 <div class="card mb-3">
@@ -44,12 +44,12 @@
     </div>
     <div class="mb-3">
         <label for="addPetDescription" class="form-label"><h6>Description</h6></label>
-        {{!-- <textarea class="form-control" id="updatePetDescription" rows="3" id="{{description}}" ></textarea> --}}
-        <input type="name" class="form-control" id="updatePetAge" value="{{description}}">
+        <textarea class="form-control" id="updatePetDescription" rows="3">{{description}}</textarea>
+        {{!-- <input type="name" class="form-control" id="updatePetAge" value="{{description}}"> --}}
     </div>
     <div class="mb-3">
         <label for="addPetPicture" class="form-label"><h6>Add picture</h6></label>
-        <input type="name" class="form-control" id="updatePetPicture" placeholder="Picture">
+        <input type="name" class="form-control" id="updatePetPicture" value="{{picture}}">
     </div>
 
     <button type="submit" class="btn btn-primary" id="updatePetButton">Update</button>
