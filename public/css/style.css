@@ -11,10 +11,6 @@
   background-position: center;
 }
 
-/* .card {
-  width: 600px;
-} */
-
 @media screen and (max-width: 768px) {
   .topBackPic {
     height: 0;

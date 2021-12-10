@@ -1,7 +1,7 @@
 # Pet Adopt
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
- [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge&style=flat)]()
+ [![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge&style=flat)](https://evening-earth-50473.herokuapp.com/)
 
 
   ## Table of contents
@@ -16,7 +16,7 @@
 
 
 
-   [Check it on HEROKU]()
+   [Check it on HEROKU](https://evening-earth-50473.herokuapp.com/)
   
   ![Pet Adopt](./public/images/.jpg)
 
