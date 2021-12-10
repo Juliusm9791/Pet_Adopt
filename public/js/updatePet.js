@@ -4,15 +4,16 @@ const updatePetFormHandler = async (event) => {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-  const petName = document.querySelector('#updatePetName')
-  const breed = document.querySelector('#updatePetBreed')
-  const age = document.querySelector('#updatePetAge')
+  const petName = document.querySelector('#updatePetName');
+  const breed = document.querySelector('#updatePetBreed');
+  const age = document.querySelector('#updatePetAge');
   const description = document.querySelector('#updatePetDescription');
-  const picture = document.querySelector('#updatePetPicture')
+  const picture = document.querySelector('#updatePetPicture');
   const petTypeSelect = document.querySelector('#updatePetType').selectedOptions;
   let petType = petTypeSelect[0].textContent;
 
-  const errors = [];
+  let errors = [];
+  let noerrors = [];
   const querySelectors = {
     petName,
     breed,
@@ -20,8 +21,8 @@ const updatePetFormHandler = async (event) => {
     description,
     picture,
     petType,
-
   }
+
   const body = {
     petName: petName.value.trim(),
     breed: breed.value.trim(),
@@ -31,12 +32,9 @@ const updatePetFormHandler = async (event) => {
     petType
   };
 
-  for (const key in body) {
-    if (!body[key]) {
-      errors.push(key);
-    }
-  }
-
+  Object.keys(body).forEach(key => {
+    (!body[key]) ? errors.push(key) : noerrors.push(key);
+  });
 
   if (!errors.length) {
     try {
@@ -54,9 +52,13 @@ const updatePetFormHandler = async (event) => {
     }
   } else {
     errors.forEach(error => {
-      console.log(error)
-      querySelectors[error].classList.add('border-danger')
-    })
+      querySelectors[error].classList.add('border-danger');
+    });
+    if (noerrors) {
+      noerrors.forEach(noerror => {
+        querySelectors[noerror].classList.remove('border-danger');
+      });
+    }
   }
 };
 

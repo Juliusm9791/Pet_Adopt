@@ -25,7 +25,7 @@ router.get('/mypets', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Pet }, { model: Message }],
+      include: { model: Pet, include: {model: Message}},
     });
 
     const userInfo = userData.get({ plain: true });
@@ -41,7 +41,7 @@ router.get('/mypets', withAuth, async (req, res) => {
   }
 });
 
-// GET pet info by id 
+// GET pet info
 router.get('/allpets', async (req, res) => {
   try {
     const petData = await Pet.findAll({
@@ -69,8 +69,8 @@ router.get('/allpets/:petType', async (req, res) => {
 
 
     const allPets = petData.map(pet => pet.get({ plain: true }));
-    console.log(petData)
-    res.render('allpets', { allPets, loggedIn: req.session.loggedIn });
+    // console.log(petData)
+    res.render('allpets', { allPets, loggedIn: req.session.loggedIn, petType: req.params.petType, });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -86,7 +86,7 @@ router.get('/allpets/pet/:id', async (req, res) => {
 
     const petInfo = petData.get({ plain: true });
     // console.log(petInfo)
-    res.render('seeonepet', { ...petInfo, loggedIn: req.session.loggedIn });
+    res.render('seeonepet', { ...petInfo, loggedIn: req.session.loggedIn, petType: req.params.petType, });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -124,8 +124,6 @@ router.get('/mypets/messages/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 router.get('/mypets/addpet', withAuth, async (req, res) => {
   try {

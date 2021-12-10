@@ -1,37 +1,50 @@
-
 {{!-- <h2>Below are the list of your saved pets</h2> --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+{{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid" style="background-color: aqua">
         <a class="navbar-brand" href="/"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav" style="margin-left: 400px">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> --}}
+            <div class="text-center p-3 mb-2 mt-2 bg-primary text-white">
                 <h2>Welcome {{firstName}} {{lastName}}</h2>
             </div>
+            {{!--
         </div>
     </div>
-</nav>
+</nav> --}}
 <a href="/mypets/addpet" type="button" class="btn btn-primary my-3" id="addPostButton">Add New Pet</a>
 
 {{#each pets}}
 <div class="card mb-3">
     <div class="row g-0">
-        <div class="col-md-4">
-            <a href="/mypets/update/{{id}}"><img src="/images/{{picture}}.jpg" class="img-fluid rounded-start" alt="Pet picture"></a>
-        </div>     
-            <div class="col-md-8" style="background-color: #caf0f8;">
-                <div class="card-body">
-                    <h5 class="card-title">Name: {{petName}}</h5>
-                    <h5 class="card-title">Age: {{age}}</h5>
-                    <h5 class="card-title">Breed: {{breed}}</h5>
-                    <h5 class="card-title">About Me:</h5>
-                    <p class="card-text">{{description}}</p>
-                    <p class="card-text"><small class="text-muted">{{format_date createdAt}}</small></p>
+        <div class="col-md-4 text-center">
+            <a href="/mypets/update/{{id}}"><img src="{{picture}}" class="img-fluid rounded-start" style="max-height: 200px;"
+                    alt="Pet picture"></a>
+
+        </div>
+        <div class="col-md-8 bg-primary bg-opacity-25">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{petName}}</h5>
+                <h5 class="card-title">Age: {{age}}</h5>
+                <h5 class="card-title">Breed: {{breed}}</h5>
+                <h5 class="card-title">About Me:</h5>
+                <p class="card-text">{{description}}</p>
+                <div class="card-text">
+                    <a href="/mypets/update/{{id}}" class="btn btn-outline-primary" type="submit">Update
+                        info</a>
+
+                    {{#if messages}}
+                    <a href="/mypets/messages/{{id}}" class="btn btn-outline-success" type="submit">Messages</a>
+                    {{/if}}
+                    
+                        <p class="text-end m-0"><small class="text-muted">{{format_date createdAt}}</small></p>
+                    
+                   
                 </div>
-            </div>     
-    </div>   
+            </div>
+        </div>
+    </div>
 </div>
 {{/each}}

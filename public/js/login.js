@@ -22,24 +22,56 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const firstName = document.querySelector('#firstName-signup').value.trim();
-  const lastName = document.querySelector('#lastName-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const phoneNumber = document.querySelector('#phone-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+  const firstName = document.querySelector('#firstName-signup');
+  const lastName = document.querySelector('#lastName-signup');
+  const email = document.querySelector('#email-signup');
+  const phoneNumber = document.querySelector('#phone-signup');
+  const password = document.querySelector('#password-signup');
 
-  if (firstName && lastName && email && phoneNumber && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ firstName, lastName, email, password, phoneNumber }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+  let errors = [];
+  let noerrors = [];
+  const querySelectors = {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    password,
+  }
 
-    if (response.ok) {
-      document.location.replace('/mypets');
-    } else {
-      alert('Failed to sign up. \nUser is already exist or min password lenth is not 8 symbols');
+  const body = {
+    firstName: firstName.value.trim(),
+    lastName: lastName.value.trim(),
+    email: email.value.trim(),
+    phoneNumber: phoneNumber.value.trim(),
+    password: password.value.trim(),
+  };
+
+  Object.keys(body).forEach(key => {
+    (!body[key]) ? errors.push(key) : noerrors.push(key);
+  });
+
+  if (!errors.length) {
+    try {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        document.location.replace('/mypets');
+      }
+    } catch (error) {
+      console.log(error);
     }
+
+  } else {
+    noerrors.forEach(noerror => {
+      querySelectors[noerror].classList.remove('border-danger');
+    });
+    errors.forEach(error => {
+      querySelectors[error].classList.add('border-danger');
+    })
   }
 };
 
