@@ -7,7 +7,7 @@ const petData = [
 		"petType": "Dog",
 		"description": "Small energetic puppy",
 		"age": 1,
-		"picture": "one",
+		"picture": "/images/one.jpg",
 		"userId": 1
 
 	},
@@ -17,7 +17,7 @@ const petData = [
 		"petType": "Cat",
 		"description": "White and black indoor adult cat",
 		"age": 2,
-		"picture": "two",
+		"picture": "/images/two.jpg",
 		"userId": 2
 	},
 	{
@@ -26,7 +26,7 @@ const petData = [
 		"petType": "Cat",
 		"description": "Black and white indoor adult cat",
 		"age": 3,
-		"picture": "three",
+		"picture": "/images/three.jpg",
 		"userId": 3
 	},
 	{
@@ -35,7 +35,7 @@ const petData = [
 		"petType": "Dog",
 		"description": "Young playful pitbull",
 		"age": 1,
-		"picture": "four",
+		"picture": "/images/four.jpg",
 		"userId": 1
 	},
 	{
@@ -44,7 +44,7 @@ const petData = [
 		"petType": "Dog",
 		"description": "Adult english bulldog well-trained",
 		"age": 5,
-		"picture": "five",
+		"picture": "/images/five.jpg",
 		"userId": 2
 	},
 	{
@@ -53,7 +53,7 @@ const petData = [
 		"petType": "Dog",
 		"description": "Large loveable great dane puppy",
 		"age": 1,
-		"picture": "six",
+		"picture": "/images/six.jpg",
 		"userId": 3
 	},
 	{
@@ -62,7 +62,7 @@ const petData = [
 		"petType": "Cat",
 		"description": "Short-hair indoor/outdoor cat",
 		"age": 3,
-		"picture": "seven",
+		"picture": "/images/seven.jpg",
 		"userId": 1
 	},
 	{
@@ -71,7 +71,7 @@ const petData = [
 		"petType": "Bird",
 		"description": "Beautiful green parakeet",
 		"age": 3,
-		"picture": "eight",
+		"picture": "/images/eight.jpg",
 		"userId": 2
 	}
 
