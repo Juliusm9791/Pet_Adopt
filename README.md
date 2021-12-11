@@ -14,7 +14,8 @@
 
   ## Description
 
-
+Application where people can find animals they would like to adopt as their pet. 
+A place for people to post animals that need to be adopted.
 
    [Check it on HEROKU](https://evening-earth-50473.herokuapp.com/)
   
