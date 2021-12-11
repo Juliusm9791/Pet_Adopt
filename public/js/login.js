@@ -69,9 +69,12 @@ const signupFormHandler = async (event) => {
     noerrors.forEach(noerror => {
       querySelectors[noerror].classList.remove('border-danger');
     });
-    errors.forEach(error => {
-      querySelectors[error].classList.add('border-danger');
-    })
+    if (errors) {
+      errors.forEach(error => {
+        querySelectors[error].classList.add('border-danger');
+      })
+      alert('You need to fill all fields');
+    }
   }
 };
 

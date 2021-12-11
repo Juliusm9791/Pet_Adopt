@@ -18,7 +18,7 @@
 
    [Check it on HEROKU](https://evening-earth-50473.herokuapp.com/)
   
-  ![Pet Adopt](./public/images/.jpg)
+  ![Pet Adopt](./public/images/home.jpg)
 
 
   #### For this project the following technologies were used:
@@ -30,6 +30,7 @@
   * npm bcrypt
   * npm handlebars
   * Insomnia 
+  * @google-cloud/storage
   * CSS Bootstrap 
 
 
